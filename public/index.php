@@ -21,5 +21,7 @@ switch($_SERVER['REQUEST_URI']){
         include __DIR__ . '/../views/tech.php';
         break;
     default:
-        echo '404';
+        echo '<p style="text-align: center; font-weight: bold; font-size: 48px;">404</p>';
+        echo '<br>';
+        echo '<img src=meisho-doto-awawa.gif style="width: 30%; height: auto; align: center; display: block; margin-left: auto; margin-right: auto;">';
 }
