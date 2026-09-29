@@ -64,3 +64,35 @@ Router::addRoute('/us', function () {
 
         include __DIR__ . '/views/us.php';
 });
+
+Router::addRoute('/tech', function () {
+    $title = 'Technology';
+    $posts = [
+        [
+            'title' => 'Some Technology title 1',
+            'date' => 'January 1, 2021',
+            'author' => 'Pets',
+            'body' => 'Some Technology content 1',
+        ],
+        [
+            'title' => 'Some Technology title 2',
+            'date' => 'January 3, 2021',
+            'author' => 'Manivald',
+            'body' => 'Some Technology content 2',
+        ],
+        [
+            'title' => 'Some Technology title 3',
+            'date' => 'January 5, 2021',
+            'author' => 'Jorss',
+            'body' => 'Some Technology content 3',
+        ],
+        [
+            'title' => 'Some Technology title 4',
+            'date' => 'January 7, 2021',
+            'author' => 'Heli Kopter',
+            'body' => 'Some Technology content 4',
+        ],
+    ];
+
+    include __DIR__ . '/views/tech.php';
+});
