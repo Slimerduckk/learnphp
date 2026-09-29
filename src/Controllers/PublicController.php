@@ -70,7 +70,7 @@ class PublicController
 
     public function tech()
     {
-        $title = 'U.S';
+        $title = 'Technology';
         $posts = [
             [
                 'title' => 'Some Technology title 1',
@@ -97,7 +97,7 @@ class PublicController
                 'body' => 'Some Technology content 4',
             ],
         ];
-        view('us', compact('title', 'posts'));
+        view('tech', compact('title', 'posts'));
     }
     public function test() {
         $db = new App\DB();
