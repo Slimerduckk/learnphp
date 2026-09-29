@@ -9,8 +9,24 @@ function dump(...$values){
     echo '</pre>';
 }
 
+spl_autoload_register(function ($class){
+    $class = substr($class, strlen('App\\'));
+    $class = str_replace('\\', '/', $class);
+    require_once __DIR__ . "/../src/$class.php";
+});
 
-switch($_SERVER['REQUEST_URI']){
+use App\Controllers\PublicController as PC;
+
+$router = new App\Router();
+$db = new App\DB();
+$controller = new PC();
+$controller = new PC();
+$controller = new PC();
+$controller = new PC();
+$controller = new PC();
+dump($router, $db, $controller);
+
+/*switch($_SERVER['REQUEST_URI']){
     case '/':
         $title = 'World';
         $posts = [
@@ -73,4 +89,4 @@ switch($_SERVER['REQUEST_URI']){
         echo '<p style="text-align: center; font-weight: bold; font-size: 48px;">404</p>';
         echo '<br>';
         echo '<img src=meisho-doto-awawa.gif style="width: 30%; height: auto; align: center; display: block; margin-left: auto; margin-right: auto;">';
-}
+}*/
