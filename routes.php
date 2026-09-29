@@ -96,3 +96,7 @@ Router::addRoute('/tech', function () {
 
     include __DIR__ . '/views/tech.php';
 });
+
+Router::addRoute('/test', function () {
+    $db = new App\DB();
+});
