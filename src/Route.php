@@ -15,3 +15,4 @@ class Route {
     public function getAction() {
         return $this->action;
     }
+}
