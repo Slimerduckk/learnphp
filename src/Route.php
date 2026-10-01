@@ -5,7 +5,7 @@ use Exception;
 
 class Route {
 
-    public function __construct(private string $method, private string $path, private string $action)
+    public function __construct(private string $method, private string $path, private $action)
     {
         if($this -> method !== 'GET' && $this->method !== 'POST'){
             throw new Exception('Invalid route method' . $this->method);

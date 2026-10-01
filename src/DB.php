@@ -1,10 +1,13 @@
 <?php
 namespace App;
 
+use App\Models\Post;
 use PDO;
 use PDOException;
 
 class DB {
+private $conn;
+
     public function __construct()
     {
         $servername = "localhost:33061";
@@ -13,12 +16,19 @@ class DB {
         $dbname = "learnphp";
 
         try {
-            $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+            $this->conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
             // set the PDO error mode to exception
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             echo "Connected successfully";
         } catch (PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
         }
+    }
+    
+    public function all(){
+        $sql = "SELECT * FROM posts";
+        $result = $this->conn->query($sql);
+        $result->setFetchMode(PDO::FETCH_CLASS, Post::class);
+        return $result->fetchall();
     }
 }
