@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\DB;
+
 class PublicController
 {
     public function index()
@@ -100,7 +102,7 @@ class PublicController
         view('tech', compact('title', 'posts'));
     }
     public function test() {
-        $db = new App\DB();
+        $db = new DB();
     }
 
     public function form() {
