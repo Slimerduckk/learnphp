@@ -31,4 +31,12 @@ private $conn;
         $result->setFetchMode(PDO::FETCH_CLASS, Post::class);
         return $result->fetchall();
     }
+
+    public function where($table, $class, $field, $value) {
+        $sql = "SELECT * FROM $table WHERE $field='$value'";
+        // Execute the SQL query
+        $result = $this->conn->query($sql);
+        $result->setFetchMode(PDO::FETCH_CLASS, $class);
+        return $result->fetchAll();
+    }
 }
